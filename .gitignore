@@ -3,5 +3,5 @@
 src/main/java/utility/SQLInfo.java
 src/main/java/utility/SQLInfo.class
 
-src/main/gameRec/*
-!src/main/gameRec/src/
+src/main/webapp/gameRec/*
+!src/main/webapp/gameRec/src/

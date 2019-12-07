@@ -4,8 +4,9 @@ import models.User;
 
 public interface UserDao {
 	
-	User login(String username, String password);
+	UserDao currentImplementation = new UserDaoImpl();
 	
+	User login(String username, String password);
 	void register(String username, String password);
 	
 	

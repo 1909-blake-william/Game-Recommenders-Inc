@@ -8,17 +8,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-
 import daos.UserDao;
 import models.User;
 import utility.JsonReader;
-
-/*
- * todo:make global object mapper in util
- * 
- * 
- */
 
 
 @SuppressWarnings("serial")

@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 import utility.ConnectionUtil;
+import utility.Exceptions;
 import utility.MagicWord;
 
 import models.User;
@@ -27,7 +28,7 @@ public class UserDaoImpl implements UserDao {
 				return extractUser(rs);
 			}
 		} catch (SQLException e) {
-			e.printStackTrace(); // will be changed to a logger output as soon as we have a logger configured
+			Exceptions.logSQLException(e);
 		}
 		return null;
 	}
@@ -41,7 +42,7 @@ public class UserDaoImpl implements UserDao {
 			stmt.executeQuery();
 			
 		} catch (SQLException e) {
-			e.printStackTrace(); // will be changed to a logger output as soon as we have a logger configured
+			Exceptions.logSQLException(e); 
 		}
 		return;
 		

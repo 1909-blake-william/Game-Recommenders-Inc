@@ -24,9 +24,8 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 
 public class JsonReader {
 
-	public static final String CONTENT_TYPE = "application/json";
+	
 	private static final ObjectMapper mapper = new ObjectMapper();
-	private static Logger logger = LogManager.getLogger(JsonReader.class);
 
 	static {
 		mapper.enable(SerializationFeature.INDENT_OUTPUT);
@@ -39,29 +38,19 @@ public class JsonReader {
 		try {
 			return mapper.writeValueAsBytes(o);
 		} catch (IOException e) {
-			logJsonMarshalException(e, o.getClass());
-			return null;
+			Exceptions.logJsonMarshalException(e, o.getClass());
 		}
+		return null;
 	}
 
 	public static Object read(InputStream is, Class<?> classy) {
 		try {
 			return mapper.readValue(is, classy);
 		} catch (IOException e) {
-			logJsonUnmarshalException(e, classy);
-			return null;
+			Exceptions.logJsonUnmarshalException(e, classy);
 		}
+		return null;
 	}
 
-	// Memo: Marshalling = POJO=>JSON (write)
-	public static void logJsonMarshalException(IOException e, Class<?> inputClass) {
-		logger.warn("Failed to Marshal object of type {}", inputClass.getName());
-		logger.warn("Stack Trace: ", e);
-	}
 
-	// Memo: Unmarshalling JSON=>POJO (a read)
-	public static void logJsonUnmarshalException(IOException e, Class<?> inputClass) {
-		logger.warn("Failed to Unmarshal object of type {}", inputClass.getName());
-		logger.warn("Stack Trace: ", e);
-	}
 }

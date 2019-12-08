@@ -1,11 +1,11 @@
-export class GameInfo {
+export class Videogame {
     constructor(
-        public gameTitle = '',
-        public gameGenre = '',
-        public gamePlatform = '',
-        public gameTitle = '',
-        public gameTitle = '',
-        public gameTitle = '',
-        public gameTitle = '',
+        public gameid = '',
+        public gamename = '',
+        public platformid = '',
+        public platformname = '',
+        public genreid = '',
+        public genrename = '',
+        public preferenceid = '',
     ) {}
 }

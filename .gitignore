@@ -1,4 +1,5 @@
 *\pom.properties
+*\manifest.MF
 
 src/main/java/utility/SQLInfo.java
 src/main/java/utility/SQLInfo.class

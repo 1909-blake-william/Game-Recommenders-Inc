@@ -1,19 +1,3 @@
-DROP USER gri CASCADE;
-
-CREATE USER gri
-IDENTIFIED BY p4ssw0rd
-DEFAULT TABLESPACE users
-TEMPORARY TABLESPACE temp
-QUOTA 10M ON users;
-
-GRANT CONNECT TO gri;
-GRANT RESOURCE TO gri;
-GRANT CREATE SESSION TO gri;
-GRANT CREATE TABLE TO gri;
-GRANT CREATE VIEW TO gri;
-
-conn gri/p4ssw0rd;
-
 CREATE SEQUENCE user_id_seq;
 CREATE TABLE user_table (
     user_id INT PRIMARY KEY NOT NULL,
@@ -43,9 +27,9 @@ CREATE TABLE video_games ( -- joined table, houses all info
     user_id INT REFERENCES user_table(user_id) NOT NULL,
     platform_id INT REFERENCES platforms(platform_id) NOT NULL,
     genre_id INT REFERENCES genres(genre_id) NOT NULL,
-    preference_id INT REFERENCES preferences(preference_id) NOT NULL
+    preference_id INT REFERENCES preferences(preference_id) NOT NULL,
+    CONSTRAINT video_game_pk PRIMARY KEY(game_id, user_id, platform_id)
 );
-
 --------------------------------------------------------------------------------------------------------------------------------
 --Populating preferences table values
 --------------------------------------------------------------------------------------------------------------------------------
@@ -73,11 +57,5 @@ INSERT INTO preferences(preference_id, preference_name, owned_name)
 --------------------------------------------------------------------------------------------------------------------------------
 INSERT INTO user_table (user_id, username, password)
     VALUES (user_id_seq.nextval, 'admin', 'password');
-
-
---------------------------------------------------------------------------------------------------------------------------------
---Stored Procedures
---------------------------------------------------------------------------------------------------------------------------------
-
 
 commit;

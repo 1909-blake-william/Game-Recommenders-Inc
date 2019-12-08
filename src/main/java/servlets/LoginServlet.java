@@ -14,7 +14,7 @@ import utility.JsonReader;
 
 
 @SuppressWarnings("serial")
-public class LoginServler extends HttpServlet {
+public class LoginServlet extends HttpServlet {
 	User loggedInUser = null;
 	UserDao userDao = UserDao.currentImplementation;
 

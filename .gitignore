@@ -1,7 +1,10 @@
 *\pom.properties
+*\manifest.MF
 
 src/main/java/utility/SQLInfo.java
 src/main/java/utility/SQLInfo.class
 
-src/main/webapp/gameRec/*
-!src/main/webapp/gameRec/src/
+src/main/webapp/gameRec/node_modules
+/target/*
+
+

@@ -8,7 +8,6 @@ import { GameRegisterComponent } from './game-register/game-register.component';
 import { GameRecommenderComponent } from './game-recommender/game-recommender.component';
 import { MainComponent } from './main/main.component';
 import { GameOwnedComponent } from './game-owned/game-owned.component';
-import { MenubarComponent } from './menubar/menubar.component';
 import { GameInfoComponent } from './game-info/game-info.component';
 
 @NgModule({
@@ -19,7 +18,6 @@ import { GameInfoComponent } from './game-info/game-info.component';
     GameRecommenderComponent,
     MainComponent,
     GameOwnedComponent,
-    MenubarComponent,
     GameInfoComponent
   ],
   imports: [

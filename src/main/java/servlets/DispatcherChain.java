@@ -20,7 +20,7 @@ public class DispatcherChain implements Dispatcher {
 	}
 
 	/*
-	 * Iterates through the list of dispatchers to see which, if any can handle the
+	 * Iterates through the list of dispatchers to see if any of them can handle the
 	 * HTTPServletRequest.
 	 */
 	@Override

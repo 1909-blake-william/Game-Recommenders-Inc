@@ -5,3 +5,4 @@ src/main/java/utility/SQLInfo.class
 
 src/main/webapp/gameRec/src/node_modules
 /target/*
+/target/

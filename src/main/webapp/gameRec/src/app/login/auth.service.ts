@@ -10,6 +10,8 @@ import { ReplaySubject, Subject } from 'rxjs';
 
 export class AuthService {
 
+  // not so sure whats going on in here.
+
   private currentUserStream = new ReplaySubject<User>(1);
   $currentUser = this.currentUserStream.asObservable();
 
@@ -18,7 +20,7 @@ export class AuthService {
 
 
   constructor(private httpClient: HttpClient, private router: Router) {
-    this.httpClient.get<User>('http://localhost:8080/PokemonApi/auth/session-user', {
+    this.httpClient.get<User>('http://localhost:8080/gri/session-user', {
       withCredentials: true
     }).subscribe(
       data => {
@@ -33,17 +35,17 @@ export class AuthService {
   }
 
   login(credentials) {
-    this.httpClient.post<User>('http://localhost:8080/PokemonApi/auth/login', credentials, {
+    this.httpClient.post<User>('http://localhost:8080/gri/login', credentials, {
       withCredentials: true
     }).subscribe(
       data => {
         console.log('logged in');
-        this.router.navigateByUrl('/pokemon');
+        this.router.navigateByUrl('/main');
         this.currentUserStream.next(data);
       },
       err => {
         console.log(err);
-        this.loginErrorStream.next('Failed to Login');
+        this.loginErrorStream.next('Login Failed');
       }
     );
   }

@@ -1,11 +1,27 @@
-<div id="loginInfo">
+<form class="form-signin" (submit)="login()">
     <label class="primary" for="uname"><b>Username</b></label>
-    <input type="text" placeholder="Enter Username" id="uname" name="uname" required>
-    <br>
+    <input
+        type="text"
+        class="input-form"
+        placeholder="Enter Username"
+        id="username"
+        name="username"
+        required autofocus
+        [(ngModel)]="credentials.username"
+    >
     <label class="primary" for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" id="psw" name="psw" required>
-    <br><br>
-    <button type="button" (submit)="login()">Login</button>
-    <div id="error-message">
-    </div>
+    <input
+        type="password" 
+        class="input-form"
+        name="password"
+        id="password" 
+        placeholder="Password" 
+        required
+        [(ngModel)]="credentials.password"
+    >
+<p id="error-message">{{errorMessage}}</p>
+<button type="button" type="submit">Login</button>
+<div id="error-message">
+    {{errorMessage}}
 </div>
+</form>

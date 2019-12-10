@@ -1,8 +1,9 @@
 export class VideoGameRegister {
     constructor(
-        public videoGameName = '',
-        public platform = '',
-        public likeDislike = '',
+        public videoGameName: string,
+        public platform: string,
+        public likeDislike: string,
+        public slug: string,
 
     ) { }
 }

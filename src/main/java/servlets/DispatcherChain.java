@@ -21,6 +21,9 @@ public class DispatcherChain implements Dispatcher {
 	private DispatcherChain() {
 		this.dispatchers = new ArrayList<>();
 		this.dispatchers.add(new LoginDispatcher());
+		this.dispatchers.add(new RegisterUserDispatcher());
+		this.dispatchers.add(new GameDispatcher());
+		this.dispatchers.add(new RecommendationDispatcher());
 	}
 
 	/*

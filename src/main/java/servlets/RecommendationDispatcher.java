@@ -19,22 +19,7 @@ public class RecommendationDispatcher implements Dispatcher{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
-		try {
-			LoginForm credentials = (LoginForm) JsonReader.read(req.getInputStream(), LoginForm.class);
-			loggedInUser = userDao.login(credentials.getUsername(), credentials.getPassword());
-			
-			if (loggedInUser == null) {
-				resp.setStatus(HttpServletResponse.SC_UNAUTHORIZED); // Unauthorized status code
-				return;
-			} else {
-				resp.setStatus(HttpServletResponse.SC_OK);
-				req.getSession().setAttribute("user", loggedInUser);
-				resp.getOutputStream().write(JsonReader.write(loggedInUser));
-				return;
-			}
-		} catch (IOException e) {
-			Exceptions.logJsonUnmarshalException(e, LoginForm.class);
-		}
+		
 		
 	}
 

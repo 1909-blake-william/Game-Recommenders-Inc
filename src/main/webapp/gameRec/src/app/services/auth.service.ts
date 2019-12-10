@@ -7,7 +7,10 @@ import { ReplaySubject, Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
+
+  // not so sure whats going on in here.
 
   private currentUserStream = new ReplaySubject<User>(1);
   $currentUser = this.currentUserStream.asObservable();
@@ -17,35 +20,32 @@ export class AuthService {
 
 
   constructor(private httpClient: HttpClient, private router: Router) {
-    this.httpClient.get<User>('http://localhost:8080/gri/login', {
+    this.httpClient.get<User>('http://localhost:8080/gri/session-user', {
       withCredentials: true
     }).subscribe(
       data => {
         console.log('logged in');
-        console.log(data);
-        this.currentUserStream.next(data);
+        this.currentUserStream.next(data); // transitions to next screen if already logged in
       },
       err => {
-        console.log('not currently logged in');
+        console.log('not currently logged in'); // prints to console if not
       }
     );
   }
 
-  login(credentials: { username: string; password: string; }) {
-    this.httpClient.post<User>('http://localhost:8080/gri/main', credentials, {
-      withCredentials: true
-    }).subscribe(
-      data => {
-        console.log('logged in');
-        this.router.navigateByUrl('/main');
-        this.currentUserStream.next(data);
+  login(credentials: any) { //
+    this.httpClient.post<User>('http://localhost:8080/gri/login', credentials, {
+      withCredentials: true // processes only if cedentials are filled ?
+    }).subscribe( //
+      data => { // if successful / 200's is returned
+        console.log('logged in'); // prints error, not required
+        this.router.navigateByUrl('/main'); // the link to the next location
+        this.currentUserStream.next(data); // sends user data to next location
       },
-      err => {
-        console.log(err);
-        this.loginErrorStream.next('Failed to Login');
+      err => { // if successful / 400's is returned
+        console.log(err); // prints error, not required
+        this.loginErrorStream.next('Login Failed'); // sets error message?
       }
     );
   }
-
-
 }

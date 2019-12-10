@@ -3,9 +3,6 @@ package utility;
 import java.io.IOException;
 import java.io.InputStream;
 
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 
@@ -18,8 +15,6 @@ import com.fasterxml.jackson.databind.SerializationFeature;
  * read:	converts json to pojo, used to convert:
  * 			login credentials sent to java
  * 			liked/disliked game info sent to java
- * 			
- * 
  */
 
 public class JsonReader {

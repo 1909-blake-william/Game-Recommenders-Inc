@@ -1,15 +1,18 @@
 import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { AppUser } from '../model/user.model';
+import { User } from '../model/user.model';
 import { ReplaySubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class AuthService {
 
-  private currentUserStream = new ReplaySubject<AppUser>(1);
+  // not so sure whats going on in here.
+
+  private currentUserStream = new ReplaySubject<User>(1);
   $currentUser = this.currentUserStream.asObservable();
 
   private loginErrorStream = new Subject<string>();
@@ -17,35 +20,32 @@ export class AuthService {
 
 
   constructor(private httpClient: HttpClient, private router: Router) {
-    this.httpClient.get<AppUser>('http://localhost:8080/PokemonApi/auth/session-user', {
+    this.httpClient.get<User>('http://localhost:8080/GameRecommender/gri/session-user', {
       withCredentials: true
     }).subscribe(
       data => {
         console.log('logged in');
-        console.log(data);
-        this.currentUserStream.next(data);
+        this.currentUserStream.next(data); // transitions to next screen if already logged in
       },
       err => {
-        console.log('not currently logged in')
+        console.log('not currently logged in'); // prints to console if not
       }
     );
   }
 
-  login(credentials) {
-    this.httpClient.post<AppUser>('http://localhost:8080/PokemonApi/auth/login', credentials, {
-      withCredentials: true
-    }).subscribe(
-      data => {
-        console.log('logged in');
-        this.router.navigateByUrl('/pokemon');
-        this.currentUserStream.next(data);
+  login(credentials: any) { //
+    this.httpClient.post<User>('http://localhost:8080/GameRecommender/gri/login', credentials, {
+      withCredentials: true // processes only if cedentials are filled ?
+    }).subscribe( //
+      data => { // if successful / 200's is returned
+        console.log('logged in'); // prints error, not required
+        this.router.navigateByUrl('/main'); // the link to the next location
+        this.currentUserStream.next(data); // sends user data to next location
       },
-      err => {
-        console.log(err);
-        this.loginErrorStream.next('Failed to Login');
+      err => { // if successful / 400's is returned
+        console.log(err); // prints error, not required
+        this.loginErrorStream.next('Login Failed'); // sets error message?
       }
     );
   }
-
-
 }

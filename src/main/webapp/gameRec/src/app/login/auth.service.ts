@@ -25,26 +25,26 @@ export class AuthService {
     }).subscribe(
       data => {
         console.log('logged in');
-        this.currentUserStream.next(data);
+        this.currentUserStream.next(data); // transitions to next screen if already logged in
       },
       err => {
-        console.log('not currently logged in');
+        console.log('not currently logged in'); // prints to console if not
       }
     );
   }
 
-  login(credentials) {
+  login(credentials: any) { //
     this.httpClient.post<User>('http://localhost:8080/gri/login', credentials, {
-      withCredentials: true
-    }).subscribe(
-      data => {//
-        console.log('logged in');
-        this.router.navigateByUrl('/main');
-        this.currentUserStream.next(data);
+      withCredentials: true // processes only if cedentials are filled ?
+    }).subscribe( //
+      data => { // if successful / 200's is returned
+        console.log('logged in'); // prints error, not required
+        this.router.navigateByUrl('/main'); // the link to the next location
+        this.currentUserStream.next(data); // sends user data to next location
       },
-      err => {
-        console.log(err);
-        this.loginErrorStream.next('Login Failed');
+      err => { // if successful / 400's is returned
+        console.log(err); // prints error, not required
+        this.loginErrorStream.next('Login Failed'); // sets error message?
       }
     );
   }

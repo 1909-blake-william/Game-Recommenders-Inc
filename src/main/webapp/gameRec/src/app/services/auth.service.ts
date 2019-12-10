@@ -1,7 +1,7 @@
 import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { AppUser } from '../model/user.model';
+import { User } from '../model/user.model';
 import { ReplaySubject, Subject } from 'rxjs';
 
 @Injectable({
@@ -9,7 +9,7 @@ import { ReplaySubject, Subject } from 'rxjs';
 })
 export class AuthService {
 
-  private currentUserStream = new ReplaySubject<AppUser>(1);
+  private currentUserStream = new ReplaySubject<User>(1);
   $currentUser = this.currentUserStream.asObservable();
 
   private loginErrorStream = new Subject<string>();
@@ -17,7 +17,7 @@ export class AuthService {
 
 
   constructor(private httpClient: HttpClient, private router: Router) {
-    this.httpClient.get<AppUser>('http://localhost:8080/PokemonApi/auth/session-user', {
+    this.httpClient.get<User>('http://localhost:8080/gri/login', {
       withCredentials: true
     }).subscribe(
       data => {
@@ -26,18 +26,18 @@ export class AuthService {
         this.currentUserStream.next(data);
       },
       err => {
-        console.log('not currently logged in')
+        console.log('not currently logged in');
       }
     );
   }
 
-  login(credentials) {
-    this.httpClient.post<AppUser>('http://localhost:8080/PokemonApi/auth/login', credentials, {
+  login(credentials: { username: string; password: string; }) {
+    this.httpClient.post<User>('http://localhost:8080/gri/main', credentials, {
       withCredentials: true
     }).subscribe(
       data => {
         console.log('logged in');
-        this.router.navigateByUrl('/pokemon');
+        this.router.navigateByUrl('/main');
         this.currentUserStream.next(data);
       },
       err => {

@@ -3,8 +3,13 @@
 src/main/java/utility/SQLInfo.java
 src/main/java/utility/SQLInfo.class
 
+<<<<<<< HEAD
 src/main/webapp/gameRec/*
 !src/main/webapp/gameRec/src/
 /target/
+=======
+src/main/webapp/gameRec/node_modules
+/target/*
+>>>>>>> 868050f1de52e4a617d0a84c8872a2f188e5725f
 
 

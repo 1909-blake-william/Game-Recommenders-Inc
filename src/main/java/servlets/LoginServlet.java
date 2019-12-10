@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import daos.UserDao;
+import daos.UserDaoImpl;
 import models.LoginForm;
 import models.User;
 import utility.JsonReader;
@@ -17,7 +18,7 @@ import utility.JsonReader;
 @SuppressWarnings("serial")
 public class LoginServlet extends HttpServlet {
 	User loggedInUser = null;
-	UserDao userDao = UserDao.currentImplementation;
+	UserDao userDao = UserDaoImpl.getInstance();
 
 	@Override
 	//what exactly is this method doing

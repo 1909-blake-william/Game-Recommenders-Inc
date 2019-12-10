@@ -10,15 +10,9 @@ import { HttpClient } from '@angular/common/http';
 
 export class GameRegisterComponent implements OnInit {
 
- registerGame(videoGame){
-  {
-    this.httpClient.post<videoGame
-}
+  constructor() { }
 
- }
-constructor() { }
-
-ngOnInit(){} 
+  ngOnInit() { }
 
 }
 

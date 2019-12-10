@@ -16,22 +16,13 @@ export class AuthService {
   $currentUser = this.currentUserStream.asObservable();
 
   private loginErrorStream = new Subject<string>();
+  private registerErrorStream = new Subject<string>();
   $loginError = this.loginErrorStream.asObservable();
+  $registerError = this.loginErrorStream.asObservable();
+ 
 
 
-  constructor(private httpClient: HttpClient, private router: Router) {
-    //   this.httpClient.get<User>('http://localhost:8080/GameRecommender/gri/session-user', {
-    //     withCredentials: true
-    //   }).subscribe(
-    //     data => {
-    //       console.log('logged in');
-    //       this.currentUserStream.next(data); // transitions to next screen if already logged in
-    //     },
-    //     err => {
-    //       console.log('not currently logged in'); // prints to console if not
-    //     }
-    //   );
-  }
+  constructor(private httpClient: HttpClient, private router: Router) {}
 
   login(credentials: any) { //
     this.httpClient.post<User>('http://localhost:8080/GameRecommender/login', credentials, {
@@ -46,6 +37,22 @@ export class AuthService {
       err => { // if successful / 400's is returned
         console.log(err); // prints error, not required
         this.loginErrorStream.next('Login Failed'); // sets error message?
+      }
+    );
+  }
+
+  register(credentials: any) { //
+    this.httpClient.post<User>('http://localhost:8080/GameRecommender/register', credentials, {
+      withCredentials: true // processes only if cedentials are filled ?
+    }).subscribe( //
+      data => { // if successful / 200's is returned
+        console.log(data);
+        console.log('User registered'); // prints error, not required
+        this.router.navigateByUrl('/login'); // the link to the next location
+      },
+      err => { // if successful / 400's is returned
+        console.log(err); // prints error, not required
+        this.registerErrorStream.next('Registration Failed'); // sets error message?
       }
     );
   }

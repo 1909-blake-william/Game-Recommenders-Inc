@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import daos.UserDao;
+import models.LoginForm;
 import models.User;
 import utility.JsonReader;
 
@@ -39,8 +40,9 @@ public class LoginServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		if ("/ReimbProj/login".equals(req.getRequestURI())) {
 			
-			User credentials = (User) JsonReader.read((InputStream) req, User.class); //
-			loggedInUser = userDao.findByCred(credentials.getUsername(), credentials.getPassword());
+			LoginForm credentials = (LoginForm) JsonReader.read((InputStream) req, User.class); //
+		
+			loggedInUser = userDao.login(credentials.getUsername(), credentials.getPassword());
 			if (loggedInUser == null) {
 				resp.setStatus(401); // Unauthorized status code
 				return;

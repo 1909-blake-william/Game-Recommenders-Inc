@@ -15,7 +15,7 @@ public class UserDaoImpl implements UserDao {
 
 	private static UserDao instance = new UserDaoImpl();
 
-	private UserDaoImpl() {
+	UserDaoImpl() {
 	}
 
 	private User extractUser(ResultSet rs) throws SQLException {

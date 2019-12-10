@@ -25,7 +25,6 @@ export class AuthService {
     }).subscribe(
       data => {
         console.log('logged in');
-        console.log(data);
         this.currentUserStream.next(data);
       },
       err => {
@@ -38,7 +37,7 @@ export class AuthService {
     this.httpClient.post<User>('http://localhost:8080/gri/login', credentials, {
       withCredentials: true
     }).subscribe(
-      data => {
+      data => {//
         console.log('logged in');
         this.router.navigateByUrl('/main');
         this.currentUserStream.next(data);

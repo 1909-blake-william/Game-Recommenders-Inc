@@ -19,7 +19,6 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 
 public class JsonReader {
 
-	
 	private static final ObjectMapper mapper = new ObjectMapper();
 
 	static {

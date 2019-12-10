@@ -4,6 +4,6 @@
 src/main/java/utility/SQLInfo.java
 src/main/java/utility/SQLInfo.class
 
-src/main/webapp/gameRec/src/node_modules
+gameRec/src/node_modules
 /target/*
 /target/

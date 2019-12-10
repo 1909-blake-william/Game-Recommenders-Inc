@@ -20,24 +20,25 @@ export class AuthService {
 
 
   constructor(private httpClient: HttpClient, private router: Router) {
-    this.httpClient.get<User>('http://localhost:8080/GameRecommender/gri/session-user', {
-      withCredentials: true
-    }).subscribe(
-      data => {
-        console.log('logged in');
-        this.currentUserStream.next(data); // transitions to next screen if already logged in
-      },
-      err => {
-        console.log('not currently logged in'); // prints to console if not
-      }
-    );
+    //   this.httpClient.get<User>('http://localhost:8080/GameRecommender/gri/session-user', {
+    //     withCredentials: true
+    //   }).subscribe(
+    //     data => {
+    //       console.log('logged in');
+    //       this.currentUserStream.next(data); // transitions to next screen if already logged in
+    //     },
+    //     err => {
+    //       console.log('not currently logged in'); // prints to console if not
+    //     }
+    //   );
   }
 
   login(credentials: any) { //
-    this.httpClient.post<User>('http://localhost:8080/GameRecommender/gri/login', credentials, {
+    this.httpClient.post<User>('http://localhost:8080/GameRecommender/login', credentials, {
       withCredentials: true // processes only if cedentials are filled ?
     }).subscribe( //
       data => { // if successful / 200's is returned
+        console.log(data);
         console.log('logged in'); // prints error, not required
         this.router.navigateByUrl('/main'); // the link to the next location
         this.currentUserStream.next(data); // sends user data to next location

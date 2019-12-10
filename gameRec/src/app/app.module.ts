@@ -11,6 +11,7 @@ import { GameRecommenderComponent } from './game-recommender/game-recommender.co
 import { MainComponent } from './main/main.component';
 import { GameOwnedComponent } from './game-owned/game-owned.component';
 import { GameInfoComponent } from './game-info/game-info.component';
+import { UserRegistrationComponent } from './user-registration/user-registration.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { GameInfoComponent } from './game-info/game-info.component';
     GameRecommenderComponent,
     MainComponent,
     GameOwnedComponent,
-    GameInfoComponent
+    GameInfoComponent,
+    UserRegistrationComponent
   ],
   imports: [
     BrowserModule,

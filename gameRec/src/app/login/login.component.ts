@@ -9,9 +9,7 @@ import { Subscription } from 'rxjs';
 })
 
 export class LoginComponent implements OnInit, OnDestroy {
-
   user = '';
-
 
   credentials = {
     username: '',

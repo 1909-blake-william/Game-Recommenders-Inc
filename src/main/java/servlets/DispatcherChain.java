@@ -6,9 +6,13 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class DispatcherChain implements Dispatcher {
 
 	private final List<Dispatcher> dispatchers;
+	private final Logger logger = LogManager.getLogger(getClass());
 	private static final DispatcherChain instance = new DispatcherChain();
 
 	/*

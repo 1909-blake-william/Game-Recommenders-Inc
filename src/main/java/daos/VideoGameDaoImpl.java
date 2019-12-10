@@ -13,7 +13,7 @@ public class VideoGameDaoImpl implements VideoGameDao {
 
 	@Override
 	public VideoGame findVideoGameRAWG(String game_name, int platform_id) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 

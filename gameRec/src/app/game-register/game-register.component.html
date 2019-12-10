@@ -1,34 +1,15 @@
 <form id = "register_game">
     Name of Game:<br>
-    <input type = "text" name="game_name"><br>
+    <input type = "text" name="game_name" [(ngModel)]="videoGameName" ><br>
     Platform:<br>
-    <select>
+    <select [(ngModel)]="Platform" >
         <option value="PC">PC</option>
         <!-- Add the rest of platforms after succesful PC implementation -->
     </select>
-    Genre:<br>
-    <select>
-        <option value="Action">Action</option>
-        <option value="Indie">Indie</option>
-        <option value="Adventure">Adventure</option>
-        <option value="RPG">RPG</option>
-        <option value="Shooter">Shooter</option>
-        <option value="Strategy">Strategy</option>
-        <option value="Casual">Casual</option>
-        <option value="Simulation">Simulation</option>
-        <option value="Arcade">Arcade</option>
-        <option value="Puzzle">Puzzle</option>
-        <option value="Platformer">Platformer</option>
-        <option value="Racing">Racing</option>
-        <option value="Sports">Sports</option>
-        <option value="Massively Multiplayer">Massively Multiplayer</option>
-        <option value="Family">Family</option>
-        <option value="Fighting">Fighting</option>
-        <option value="Board Games">Board Games</option>
-        <option value="Educational">Educational</option>
-        <option value="Card">Card</option>
-    </select>
-    <button type="button" (submit)="register()">Register</button>
+    Do you own this game?:<br>
+    <button type="button" value="Like" [(ngModel)]="likeDislike">Like</button>
+    <button type="button" value="Dislike" [(ngModel)]="likeDislike">Dislike</button>
+    <button type="button" (submit)="RegisterGame()" >Register</button>
     <div id="error-message">
     </div>
 </form>

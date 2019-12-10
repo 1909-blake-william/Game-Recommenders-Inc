@@ -1,11 +1,10 @@
 export class Videogame {
     constructor(
-        public gameid = '',
-        public gamename = '',
-        public platformid = '',
-        public platformname = '',
-        public genreid = '',
-        public genrename = '',
-        public preferenceid = '',
+        public id: number,
+        public name: string,
+        public platformid: number,
+        public genreid: number,
+        public genrename: string,
+        public likeDislike: string,
     ) {}
 }

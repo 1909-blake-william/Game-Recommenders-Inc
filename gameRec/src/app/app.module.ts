@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { ChartsModule } from 'ng2-charts';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -11,6 +12,8 @@ import { GameRecommenderComponent } from './game-recommender/game-recommender.co
 import { MainComponent } from './main/main.component';
 import { GameOwnedComponent } from './game-owned/game-owned.component';
 import { GameInfoComponent } from './game-info/game-info.component';
+import { UserRegistrationComponent } from './user-registration/user-registration.component';
+import { GameCardComponent } from './game-card/game-card.component';
 
 @NgModule({
   declarations: [
@@ -20,13 +23,16 @@ import { GameInfoComponent } from './game-info/game-info.component';
     GameRecommenderComponent,
     MainComponent,
     GameOwnedComponent,
-    GameInfoComponent
+    GameInfoComponent,
+    UserRegistrationComponent,
+    GameCardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

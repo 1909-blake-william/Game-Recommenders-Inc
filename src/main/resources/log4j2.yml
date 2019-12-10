@@ -6,12 +6,12 @@ Configuration:
   Appenders:
     Console:
       PatternLayout:
-        pattern: '[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n'
+        pattern: '[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %C{1}:%L - %msg%n'
       name: Console
       target: SYSTEM_OUT
     File:
       PatternLayout:
-        pattern: '[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n'
+        pattern: '[%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %C{1}:%L - %msg%n'
       name: File
       fileName: ${LOGS_PATH}/issues.log
       Filters:

@@ -6,9 +6,13 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 public class DispatcherChain implements Dispatcher {
 
 	private final List<Dispatcher> dispatchers;
+	private final Logger logger = LogManager.getLogger(getClass());
 	private static final DispatcherChain instance = new DispatcherChain();
 
 	/*
@@ -17,6 +21,9 @@ public class DispatcherChain implements Dispatcher {
 	private DispatcherChain() {
 		this.dispatchers = new ArrayList<>();
 		this.dispatchers.add(new LoginDispatcher());
+		this.dispatchers.add(new RegisterUserDispatcher());
+		this.dispatchers.add(new GameDispatcher());
+		this.dispatchers.add(new RecommendationDispatcher());
 	}
 
 	/*

@@ -39,17 +39,17 @@ public class UserDaoImpl implements UserDao {
 	}
 
 	@Override
-	public void register(String username, String password) {
+	public int register(String username, String password) {
 		try (Connection c = ConnectionUtil.getConnection()) {
 			PreparedStatement stmt = c.prepareCall(MagicWord.REGISTER_QUERY);
 			stmt.setString(1, username);
 			stmt.setString(2, password);
-			stmt.executeQuery();
-
+			int save = stmt.executeUpdate();
+			return save;
 		} catch (SQLException e) {
 			Exceptions.logSQLException(e);
 		}
-		return;
+		return 0;
 
 	}
 

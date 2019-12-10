@@ -1,6 +1,6 @@
 package utility;
 
-public class MagicWord {
+public final class MagicWord {
 	
 	/*
 	 * have magic words to:

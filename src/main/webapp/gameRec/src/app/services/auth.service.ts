@@ -20,7 +20,7 @@ export class AuthService {
 
 
   constructor(private httpClient: HttpClient, private router: Router) {
-    this.httpClient.get<User>('http://localhost:8080/gri/session-user', {
+    this.httpClient.get<User>('http://localhost:8080/GameRecommender/gri/session-user', {
       withCredentials: true
     }).subscribe(
       data => {
@@ -34,7 +34,7 @@ export class AuthService {
   }
 
   login(credentials: any) { //
-    this.httpClient.post<User>('http://localhost:8080/gri/login', credentials, {
+    this.httpClient.post<User>('http://localhost:8080/GameRecommender/gri/login', credentials, {
       withCredentials: true // processes only if cedentials are filled ?
     }).subscribe( //
       data => { // if successful / 200's is returned

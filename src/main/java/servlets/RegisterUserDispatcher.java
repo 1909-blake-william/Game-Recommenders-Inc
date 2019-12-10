@@ -5,6 +5,9 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import daos.UserDao;
 import daos.UserDaoImpl;
 import models.LoginForm;
@@ -12,7 +15,7 @@ import utility.Exceptions;
 import utility.JsonReader;
 
 public class RegisterUserDispatcher implements Dispatcher{
-
+	private final Logger logger = LogManager.getLogger(getClass());
 	UserDao userDao = UserDaoImpl.getInstance();
 	
 	@Override
@@ -22,17 +25,16 @@ public class RegisterUserDispatcher implements Dispatcher{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
+		logger.info("Attempting to register user");
 		try {
-			LoginForm credentials = (LoginForm) JsonReader.read(req.getInputStream(), LoginForm.class);
-			loggedInUser = userDao.login(credentials.getUsername(), credentials.getPassword());
+			LoginForm credentials = (LoginForm) JsonReader.read(request.getInputStream(), LoginForm.class);
+			int toSave = userDao.register(credentials.getUsername(), credentials.getPassword());
 			
-			if (loggedInUser == null) {
-				resp.setStatus(HttpServletResponse.SC_UNAUTHORIZED); // Unauthorized status code
+			if (toSave == 0) {
+				response.setStatus(HttpServletResponse.SC_BAD_REQUEST); // Failed status code
 				return;
 			} else {
-				resp.setStatus(HttpServletResponse.SC_OK);
-				req.getSession().setAttribute("user", loggedInUser);
-				resp.getOutputStream().write(JsonReader.write(loggedInUser));
+				response.setStatus(HttpServletResponse.SC_CREATED); // Created status code
 				return;
 			}
 		} catch (IOException e) {

@@ -12,6 +12,7 @@ import { MainComponent } from './main/main.component';
 import { GameOwnedComponent } from './game-owned/game-owned.component';
 import { GameInfoComponent } from './game-info/game-info.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
+import { GameCardComponent } from './game-card/game-card.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { UserRegistrationComponent } from './user-registration/user-registration
     MainComponent,
     GameOwnedComponent,
     GameInfoComponent,
-    UserRegistrationComponent
+    UserRegistrationComponent,
+    GameCardComponent
   ],
   imports: [
     BrowserModule,

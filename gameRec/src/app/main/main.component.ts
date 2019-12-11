@@ -42,4 +42,8 @@ export class MainComponent implements OnInit {
     this.router.navigateByUrl('/liked');
   }
 
+  go2chart() {
+    this.router.navigateByUrl('/chart');
+  }
+
 }

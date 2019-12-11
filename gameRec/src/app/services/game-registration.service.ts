@@ -48,6 +48,7 @@ export class GameRegistrationService {
     // } err: any; => {
   // console.error(err.error);
 }
+
   // let r;
   // this.result = data;
   // for (r of this.result) {

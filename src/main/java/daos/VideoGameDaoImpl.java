@@ -35,6 +35,10 @@ public class VideoGameDaoImpl implements VideoGameDao {
 
 	@Override
 	public void findVideoGameDBbyId(int user_id) {
+	}
+
+	@Override
+	public void findVideoGameDB(int videogame_id, int user_id) {
 		// TODO Auto-generated method stub
 		
 	}

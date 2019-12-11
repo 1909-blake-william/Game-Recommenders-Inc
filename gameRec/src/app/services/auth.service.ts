@@ -18,7 +18,7 @@ export class AuthService {
   private loginErrorStream = new Subject<string>();
   private registerErrorStream = new Subject<string>();
   $loginError = this.loginErrorStream.asObservable();
-  $registerError = this.loginErrorStream.asObservable();
+  $registerError = this.registerErrorStream.asObservable();
  
 
 
@@ -47,7 +47,7 @@ export class AuthService {
     }).subscribe( //
       data => { // if successful / 200's is returned
         console.log(data);
-        console.log('User registered'); // prints error, not required
+        console.log('User Registered successfully'); // prints error, not required
         this.router.navigateByUrl('/login'); // the link to the next location
       },
       err => { // if successful / 400's is returned

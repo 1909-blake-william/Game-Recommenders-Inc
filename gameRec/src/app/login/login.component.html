@@ -10,3 +10,16 @@
         {{errorMessage}}
     </div>
 </form>
+
+<form class="form-signin" (submit)="register()">
+    <label class="primary" for="uname"><b>Username</b></label>
+    <input type="text" class="input-form" placeholder="Enter Username" id="usernameR" name="usernameR" required autofocus
+        [(ngModel)]="credentialsR.username">
+    <label class="primary" for="psw"><b>Password</b></label>
+    <input type="password" class="input-form" name="passwordR" id="passwordR" placeholder="Password" required
+        [(ngModel)]="credentialsR.password">
+    <button type="button" type="submit">Register new</button><br>
+    <div id="error-message-r">
+        {{errorMessageRegist}}
+    </div>
+</form>

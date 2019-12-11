@@ -1,8 +1,8 @@
 <form id = "register_game">
     Name of Game:<br>
-    <input type = "text" name="game_name" [(ngModel)]="videoGameName" ><br>
+    <input type = "text" name="game_name" [(ngModel)]="videoGame.name" [(ngModel)]="{{videoGame.slug|SlugConvertorPipe}}" ><br>
     Platform:<br>
-    <select [(ngModel)]="Platform" >
+    <select [(ngModel)]="videoGame." >
         <option value="PC">PC</option>
         <!-- Add the rest of platforms after succesful PC implementation -->
     </select>

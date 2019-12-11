@@ -6,6 +6,7 @@ import { VideoGameRegister } from '../model/gameRegister';
 
 import { ApiResponse } from '../model/ApiResponse.model';
 import { Videogame } from '../model/game.model';
+import { SlugConvertorPipe } from '../custom pipe/slug-converter';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +15,7 @@ export class GameRegistrationService {
   private appUri: 'http://localhost:8080/GameRecommender/login'
   videoGame: Videogame;
   constructor(private httpClient: HttpClient, private router: Router) {
-    this.httpClient.get<ApiResponse[]>(`https://api.rawg.io/api/games?name=${Object.keys(VideoGa)}`, {
+    this.httpClient.get<ApiResponse[]>(`https://api.rawg.io/api/games?name=${VideoGameRegister.slug}`, {
       withCredentials: true
     }).subscribe(
       data => {
@@ -65,4 +66,4 @@ export class GameRegistrationService {
   // this.videoGame.name = data.name;
 
   // this.httpClient.post<data>('http://localhost:8080/GameRecommender/gri/register-game')
-}
+

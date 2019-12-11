@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { GameRegistrationService } from '../services/game-registration.service';
+// import { GameRegistrationService } from '../services/game-registration.service';
 import { VideoGameRegister } from '../model/gameRegister';
 import { SlugConvertorPipe } from '../custom pipe/slug-converter';
 import { Videogame } from '../model/game.model';
@@ -14,16 +14,17 @@ import { Videogame } from '../model/game.model';
 
 export class GameRegisterComponent implements OnInit {
   videoGame: VideoGameRegister;
+  ngOnInit(): void {
+    throw new Error('Method not implemented.');
+  }
 
   // tslint:disable-next-line: no-bitwise
-  {{ videoGame.name | SlugConvertorPipe }}
+// {{ videoGame.name | SlugConvertorPipe; }}
 
-constructor(
-  private registerGame: GameRegistrationService,
-) {
- }
+// constructor(
+//   private registerGame: GameRegistrationService,
+// );
 
-ngOnInit() { }
-
+// ngOnInit() {
 }
 

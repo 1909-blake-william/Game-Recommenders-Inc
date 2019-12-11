@@ -28,7 +28,7 @@ import { GameLikedComponent } from './game-liked/game-liked.component';
     GameInfoComponent,
     UserRegistrationComponent,
     GameCardComponent,
-    GameLikedComponent
+    GameLikedComponent,
   ],
   imports: [
     BrowserModule,

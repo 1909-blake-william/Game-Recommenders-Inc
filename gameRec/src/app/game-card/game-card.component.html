@@ -1,6 +1,12 @@
-<div style="display: block">
-    <canvas baseChart
-    [data]="pieChartData"
-    [labels]="PieChartLabels"
-    [chartType]="pieChartType"></canvas> 
-</div>
+<div class="card ">
+        <div class="card-header text-center">
+            Name: {{videogame.name}}
+        </div>
+        <ul class="videogame-info list-group list-group-flush">
+            <li class="list-group-item">Info</li>
+        </ul>
+        <div class="card-body">
+            <p>Platform: {{videogame.platformid}}</p>
+            <p>Genre: {{videogame.genrename}}</p>
+        </div>
+    </div>

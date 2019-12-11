@@ -18,21 +18,21 @@ export class LibraryService {
   user: User;
   userSubscription: Subscription;
 
-  getLibrary(credentials: User) { // please fix this
-    this.httpClient.get<Videogame[]>('http://localhost:8080/GameRecommender/library?', credentials).subscribe( //
-      data => { // if successful / 200's is returned
-        console.log(data);
-        console.log('logged in'); // prints error, not required
-        if (data) {
-        for (const r of data) {
+  // getLibrary(credentials: User) { // please fix this
+  //   this.httpClient.get<Videogame[]>('http://localhost:8080/GameRecommender/library?', credentials).subscribe( //
+  //     data => { // if successful / 200's is returned
+  //       console.log(data);
+  //       console.log('logged in'); // prints error, not required
+  //       if (data) {
+  //       for (const r of data) {
           
-        }
-      }
-    },
-      err => { // if successful / 400's is returned
-        console.log(err); // prints error, not required
-      }
-    );
+  //       }
+  //     }
+  //   },
+  //     err => { // if successful / 400's is returned
+  //       console.log(err); // prints error, not required
+  //     }
+  //   );
   }
 
-}
+//}

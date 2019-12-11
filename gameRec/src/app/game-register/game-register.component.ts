@@ -6,6 +6,7 @@ import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { User } from '../model/user.model';
+import { GameRegistrationService } from '../services/game-registration.service';
 
 @Component({
   selector: 'app-game-register',
@@ -14,9 +15,9 @@ import { User } from '../model/user.model';
 })
 
 export class GameRegisterComponent implements OnInit  {
-  videoGame: VideoGameRegister;
 
-  constructor(private router: Router, private authService: AuthService){}
+  videoGame: VideoGameRegister;
+  constructor(private router: Router, private authService: AuthService, private regServ : GameRegistrationService){}
 
   user: User;
   userSubscription: Subscription;
@@ -31,15 +32,8 @@ export class GameRegisterComponent implements OnInit  {
     throw new Error('Method not implemented.');
   }
 
-  goHome() {
-    this.router.navigateByUrl('/main');
+  RegisterGame() {
+    this.regServ.RegisterGame(this.videoGame);
   }
-
-
-// constructor(
-//   private registerGame: GameRegistrationService,
-// );
-
-// ngOnInit() {
 }
 

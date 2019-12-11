@@ -13,7 +13,7 @@ import { Videogame } from '../model/game.model';
 
 export class GameRegistrationService {
 
-  private appUri: 'http://localhost:8080/GameRecommender/login';
+  private appUri: 'http://localhost:8080/GameRecommender/add-game';
   public videoGame: Videogame;
 
   constructor(private httpClient: HttpClient, private router: Router) {}

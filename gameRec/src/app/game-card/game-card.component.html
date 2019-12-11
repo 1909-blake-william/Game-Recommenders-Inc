@@ -1,0 +1,13 @@
+<div class="card" *ngFor="let game of videogames">
+        <div class="card-header text-center">
+            Name: {{videogame.name}}
+        </div>
+        <ul class="videogame-info list-group list-group-flush">
+            <li class="list-group-item">Info</li>
+        </ul>
+        <div class="card-body">
+            <p>Platform: {{videogame.platformid}}</p>
+            <p>Genre: {{videogame.genrename}}</p>
+            <p>Preference: {{videogame.likeDislike}}</p>
+        </div>
+    </div>

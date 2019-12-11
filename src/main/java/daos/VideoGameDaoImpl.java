@@ -23,7 +23,7 @@ public class VideoGameDaoImpl implements VideoGameDao {
 			stmt.setInt(4, platform_id);
 			stmt.setInt(5, genre_id);
 			stmt.setInt(6, preference_id);
-			stmt.executeQuery();
+			stmt.executeUpdate();
 		} catch (SQLException e) {
 			Exceptions.logSQLException(e);
 		}

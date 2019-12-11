@@ -24,4 +24,8 @@ export class GameOwnedComponent implements OnInit {
     }
   }
 
+  goHome() {
+    this.router.navigateByUrl('/main');
+  }
+
 }

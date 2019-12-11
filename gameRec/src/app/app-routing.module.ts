@@ -2,6 +2,10 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
+import { GameRegisterComponent } from './game-register/game-register.component';
+import { GameRecommenderComponent } from './game-recommender/game-recommender.component';
+import { GameOwnedComponent } from './game-owned/game-owned.component';
+import { GameLikedComponent } from './game-liked/game-liked.component';
 
 
 const routes: Routes = [
@@ -12,6 +16,22 @@ const routes: Routes = [
   {
     path: 'main',
     component: MainComponent
+  },
+  {
+    path: 'regist',
+    component: GameRegisterComponent
+  },
+  {
+    path: 'recom',
+    component: GameRecommenderComponent
+  },
+  {
+    path: 'owned',
+    component: GameOwnedComponent
+  },
+  {
+    path: 'liked',
+    component: GameLikedComponent
   }
 ];
 
@@ -19,4 +39,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }

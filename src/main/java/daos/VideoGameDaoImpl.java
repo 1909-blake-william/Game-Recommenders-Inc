@@ -22,7 +22,7 @@ public class VideoGameDaoImpl implements VideoGameDao {
 
 	
 	@Override
-	public void addVideoGame(int game_id, String game_name, int user_id, int platform_id, int genre_id,
+	public int addVideoGame(int game_id, String game_name, int user_id, int platform_id, int genre_id,
 			int preference_id) {
 		logger.info("Attempting to add parameters: {}, {}, {}, {}, {}, {}", game_id, game_name, user_id, platform_id, genre_id, preference_id);
 		try (Connection c = ConnectionUtil.getConnection()) {
@@ -33,11 +33,11 @@ public class VideoGameDaoImpl implements VideoGameDao {
 			stmt.setInt(4, platform_id);
 			stmt.setInt(5, genre_id);
 			stmt.setInt(6, preference_id);
-			stmt.executeUpdate();
+			return stmt.executeUpdate();
 		} catch (SQLException e) {
 			Exceptions.logSQLException(e);
 		}
-		return;
+		return 0;
 		
 	}
 

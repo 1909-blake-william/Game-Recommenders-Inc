@@ -17,4 +17,10 @@ public final class MagicWord {
 	
 	// ObjectMapper Header
 	public static final String CONTENT_TYPE = "application/json";
+	
+	
+	//VideoGameDaoImplMagicWords
+	public static final String INSERT_QUERY = "INSERT INTO video_games (game_id, game_name, user_id, platform_id, genre_id, preference_id) " +
+												"VALUES (?, ?, ?, ?, ?, ?)";
+	public static final String SELECT_QUERY = ""
 }

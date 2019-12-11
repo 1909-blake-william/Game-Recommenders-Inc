@@ -16,7 +16,7 @@ export class GameRegisterComponent implements OnInit {
   videoGame: VideoGameRegister;
 
   // tslint:disable-next-line: no-bitwise
-  {{ videoGame.name | SlugConvertorPipe }}
+  //{{ videoGame.name | SlugConvertorPipe }}
 
 constructor(
   private registerGame: GameRegistrationService,

@@ -6,6 +6,7 @@ import { GameRegisterComponent } from './game-register/game-register.component';
 import { GameRecommenderComponent } from './game-recommender/game-recommender.component';
 import { GameOwnedComponent } from './game-owned/game-owned.component';
 import { GameLikedComponent } from './game-liked/game-liked.component';
+import { GameCardComponent } from './game-card/game-card.component';
 
 
 const routes: Routes = [
@@ -16,6 +17,10 @@ const routes: Routes = [
   {
     path: 'main',
     component: MainComponent
+  },
+  {
+    path: 'game-card',
+    component: GameCardComponent
   },
   {
     path: 'regist',

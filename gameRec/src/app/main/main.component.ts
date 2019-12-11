@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -7,9 +8,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MainComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit() {
+  }
+
+  go2register() {
+    this.router.navigateByUrl('/regist');
+  }
+
+  go2owned() {
+    this.router.navigateByUrl('/recom');
+  }
+
+  go2liked() {
+    this.router.navigateByUrl('/owned');
+  }
+
+  go2recommended() {
+    this.router.navigateByUrl('/liked');
   }
 
 }

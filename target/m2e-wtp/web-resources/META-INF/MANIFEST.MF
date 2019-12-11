@@ -1,5 +1,9 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: nicks
+=======
+Built-By: ctc
+>>>>>>> 3e43bcff32698a644cc95234c4ad3e29fe7a04e8
 Build-Jdk: 1.8.0_231
 Created-By: Maven Integration for Eclipse
 

@@ -16,8 +16,20 @@ export class LoginComponent implements OnInit, OnDestroy {
     password: ''
   };
 
+  credentialsR = {
+    username: '',
+    password: ''
+  };
+
   errorMessage = '';
+  errorMessageRegist = '';
   errorMessageSubscription: Subscription;
+  errorMessageRegistSubscription: Subscription;
+
+  pieChartType = 'pie';
+  data = [25, 50, 75];
+  labels = ['User A', 'User B', 'User C'];
+
 
   constructor(private authService: AuthService) { }
 
@@ -25,11 +37,19 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.errorMessageSubscription = this.authService.$loginError.subscribe((errorMessage: string) => {
       this.errorMessage = errorMessage;
     });
+    this.errorMessageRegistSubscription = this.authService.$registerError.subscribe((errorMessageRegist: string) => {
+      this.errorMessageRegist = errorMessageRegist;
+    });
   }
 
   login() {
     this.authService.login(this.credentials);
   }
+
+  register() {
+    this.authService.register(this.credentialsR);
+  }
+
 
   ngOnDestroy() {
     this.errorMessageSubscription.unsubscribe();

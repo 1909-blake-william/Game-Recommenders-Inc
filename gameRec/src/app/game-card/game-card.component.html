@@ -1,10 +1,9 @@
-<div style="width: 40%;">
-    <canvas
-        baseChart
-        [chartType]="'pie'"
-        [datasets]="chartData"
-        [labels]="chartLabels"
-        [legend]="true"
-        (chartClick)="onChartClick($event)">
+<div style="width: 100%;">
+    <canvas baseChart [chartType]="'pie'"
+    [datasets]="chartData"
+    [labels]="chartLabels"
+    [options]="chartOptions"
+    [legend]="true"
+    (chartClick)="onChartClick($event)">
     </canvas>
-  </div>
+</div>

@@ -19,13 +19,11 @@ public class VideoGameDaoImpl implements VideoGameDao {
 			PreparedStatement stmt = c.prepareCall(MagicWord.INSERT_QUERY);
 			stmt.setInt(1, game_id);
 			stmt.setString(2, game_name);
-			stmt.setInt(2, user_id);
-			stmt.setInt(2, platform_id);
-			stmt.setInt(2, genre_id);
-			stmt.setInt(2, preference_id);
-			ResultSet rs = stmt.executeQuery();
-			
-		
+			stmt.setInt(3, user_id);
+			stmt.setInt(4, platform_id);
+			stmt.setInt(5, genre_id);
+			stmt.setInt(6, preference_id);
+			stmt.executeQuery();
 		} catch (SQLException e) {
 			Exceptions.logSQLException(e);
 		}
@@ -41,6 +39,12 @@ public class VideoGameDaoImpl implements VideoGameDao {
 	public void findVideoGameDB(int videogame_id, int user_id) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public VideoGame[] gameRecom(int platform_id, int genre_id, int user_id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

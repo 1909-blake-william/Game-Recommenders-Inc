@@ -23,9 +23,7 @@ public class VideoGameDaoImpl implements VideoGameDao {
 			stmt.setInt(4, platform_id);
 			stmt.setInt(5, genre_id);
 			stmt.setInt(6, preference_id);
-			ResultSet rs = stmt.executeQuery();
-			
-		
+			stmt.executeUpdate();
 		} catch (SQLException e) {
 			Exceptions.logSQLException(e);
 		}
@@ -41,6 +39,12 @@ public class VideoGameDaoImpl implements VideoGameDao {
 	public void findVideoGameDB(int videogame_id, int user_id) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public VideoGame[] gameRecom(int platform_id, int genre_id, int user_id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

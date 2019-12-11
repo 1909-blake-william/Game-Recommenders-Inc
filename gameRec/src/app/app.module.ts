@@ -12,7 +12,6 @@ import { GameRecommenderComponent } from './game-recommender/game-recommender.co
 import { MainComponent } from './main/main.component';
 import { GameOwnedComponent } from './game-owned/game-owned.component';
 import { GameInfoComponent } from './game-info/game-info.component';
-import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { GameCardComponent } from './game-card/game-card.component';
 import { GameLikedComponent } from './game-liked/game-liked.component';
 import { TestPieChartComponent } from './test-pie-chart/test-pie-chart.component';
@@ -27,7 +26,6 @@ import { TestPieChartComponent } from './test-pie-chart/test-pie-chart.component
     MainComponent,
     GameOwnedComponent,
     GameInfoComponent,
-    UserRegistrationComponent,
     GameCardComponent,
     GameLikedComponent,
     TestPieChartComponent,

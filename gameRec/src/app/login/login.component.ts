@@ -26,6 +26,11 @@ export class LoginComponent implements OnInit, OnDestroy {
   errorMessageSubscription: Subscription;
   errorMessageRegistSubscription: Subscription;
 
+  pieChartType = 'pie';
+  data = [25, 50, 75];
+  labels = ['User A', 'User B', 'User C'];
+
+
   constructor(private authService: AuthService) { }
 
   ngOnInit() {

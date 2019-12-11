@@ -57,5 +57,5 @@ INSERT INTO preferences(preference_id, preference_name, owned_name)
 --------------------------------------------------------------------------------------------------------------------------------
 INSERT INTO user_table (user_id, username, password)
     VALUES (user_id_seq.nextval, 'admin', 'password');
-
+    
 commit;

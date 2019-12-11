@@ -16,10 +16,11 @@
     <input type="text" class="input-form" placeholder="Enter Username" id="usernameR" name="usernameR" required autofocus
         [(ngModel)]="credentialsR.username">
     <label class="primary" for="psw"><b>Password</b></label>
-    <input type="password" class="input-form" name="passwordR" id="passwordR" placeholder="Password" required
+    <input type="password" class="input-form" name="passwordR" id="passwordR" placeholder="PasswordR" required
         [(ngModel)]="credentialsR.password">
     <button type="button" type="submit">Register new</button><br>
     <div id="error-message-r">
         {{errorMessageRegist}}
     </div>
 </form>
+<router-outlet></router-outlet>

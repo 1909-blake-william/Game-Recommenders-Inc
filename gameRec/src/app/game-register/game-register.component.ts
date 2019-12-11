@@ -17,7 +17,7 @@ import { GameRegistrationService } from '../services/game-registration.service';
 export class GameRegisterComponent implements OnInit  {
 
   videoGame: VideoGameRegister;
-  constructor(private router: Router, private authService: AuthService, private regServ : GameRegistrationService){}
+  constructor(private router: Router, private authService: AuthService, private regServ: GameRegistrationService){}
 
   user: User;
   userSubscription: Subscription;

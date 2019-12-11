@@ -25,4 +25,8 @@ export class GameRecommenderComponent implements OnInit {
     }
   }
 
+  goHome() {
+    this.router.navigateByUrl('/main');
+  }
+
 }

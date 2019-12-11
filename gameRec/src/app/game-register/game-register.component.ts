@@ -7,8 +7,6 @@ import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { User } from '../model/user.model';
 
-
-
 @Component({
   selector: 'app-game-register',
   templateUrl: './game-register.component.html',
@@ -24,13 +22,17 @@ export class GameRegisterComponent implements OnInit  {
   userSubscription: Subscription;
 
   ngOnInit() {
-    throw new Error('Method not implemented.');
     this.userSubscription = this.authService.$currentUser.subscribe( (user: User) => {
       this.user = user;
     });
     if (!this.user) {
       this.router.navigateByUrl('/login');
     }
+    throw new Error('Method not implemented.');
+  }
+
+  goHome() {
+    this.router.navigateByUrl('/main');
   }
 
 

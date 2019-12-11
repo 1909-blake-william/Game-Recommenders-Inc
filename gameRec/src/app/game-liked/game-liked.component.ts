@@ -24,4 +24,8 @@ export class GameLikedComponent implements OnInit {
     }
   }
 
+  goHome() {
+    this.router.navigateByUrl('/main');
+  }
+
 }

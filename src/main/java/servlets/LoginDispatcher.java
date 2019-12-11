@@ -13,8 +13,8 @@ import utility.Exceptions;
 import utility.JsonReader;
 
 public class LoginDispatcher implements Dispatcher {
-	User loggedInUser = null;
-	UserDao userDao = UserDaoImpl.getInstance();
+	private User loggedInUser = null;
+	private UserDao userDao = UserDaoImpl.getInstance();
 
 	@Override
 	public boolean isSupported(HttpServletRequest req) {

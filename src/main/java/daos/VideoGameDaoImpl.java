@@ -12,6 +12,12 @@ import utility.MagicWord;
 
 public class VideoGameDaoImpl implements VideoGameDao {
 
+	private static VideoGameDao instance = new VideoGameDaoImpl();
+
+	private VideoGameDaoImpl() {
+	}
+
+	
 	@Override
 	public void addVideoGame(int game_id, String game_name, int user_id, int platform_id, int genre_id,
 			int preference_id) {
@@ -47,6 +53,8 @@ public class VideoGameDaoImpl implements VideoGameDao {
 		return null;
 	}
 	
-	
+	public static VideoGameDao getInstance() {
+		return instance;
+	}
 
 }

@@ -21,6 +21,9 @@ export class MainComponent implements OnInit {
     this.userSubscription = this.authService.$currentUser.subscribe( (user: User) => {
       this.user = user;
     });
+    if (!this.user) {
+      this.router.navigateByUrl('/login');
+    }
   }
 
   go2register() {

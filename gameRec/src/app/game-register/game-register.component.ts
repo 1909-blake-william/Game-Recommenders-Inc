@@ -14,22 +14,22 @@ import { GameRegistrationService } from '../services/game-registration.service';
   styleUrls: ['./game-register.component.scss']
 })
 
-export class GameRegisterComponent implements OnInit  {
+export class GameRegisterComponent implements OnInit {
 
   videoGame = {
-        userName: '',
-        name: '',
-        platform: '',
-        likeDislike: 1,
+    userName: '',
+    name: '',
+    platform: 0,
+    likeDislike: 1,
   };
-  constructor(private router: Router, private authService: AuthService, private regServ: GameRegistrationService){}
+  constructor(private router: Router, private authService: AuthService, private regServ: GameRegistrationService) { }
 
 
   user: User;
   userSubscription: Subscription;
 
   ngOnInit() {
-    this.userSubscription = this.authService.$currentUser.subscribe( (user: User) => {
+    this.userSubscription = this.authService.$currentUser.subscribe((user: User) => {
       this.user = user;
     });
     if (!this.user) {
@@ -43,10 +43,10 @@ export class GameRegisterComponent implements OnInit  {
     this.regServ.RegisterGame(this.videoGame);
   }
 
-  like(){
+  like() {
     this.videoGame.likeDislike = 5;
   }
-  dislike(){
+  dislike() {
     this.videoGame.likeDislike = 6;
   }
 }

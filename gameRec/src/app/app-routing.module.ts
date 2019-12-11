@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 import { GameRegisterComponent } from './game-register/game-register.component';
@@ -7,6 +6,7 @@ import { GameRecommenderComponent } from './game-recommender/game-recommender.co
 import { GameOwnedComponent } from './game-owned/game-owned.component';
 import { GameLikedComponent } from './game-liked/game-liked.component';
 import { GameCardComponent } from './game-card/game-card.component';
+import { Routes, RouterModule } from '@angular/router';
 import { TestPieChartComponent } from './test-pie-chart/test-pie-chart.component';
 
 

@@ -33,8 +33,6 @@ export class GameRegisterComponent implements OnInit  {
     }
   }
 
-  // tslint:disable-next-line: no-bitwise
-// {{ videoGame.name | SlugConvertorPipe; }}
 
 // constructor(
 //   private registerGame: GameRegistrationService,

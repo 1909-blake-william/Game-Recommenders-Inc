@@ -15,6 +15,7 @@ import { GameInfoComponent } from './game-info/game-info.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { GameCardComponent } from './game-card/game-card.component';
 import { GameLikedComponent } from './game-liked/game-liked.component';
+import { ReviewChartComponent } from './review-chart/review-chart.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +29,7 @@ import { GameLikedComponent } from './game-liked/game-liked.component';
     UserRegistrationComponent,
     GameCardComponent,
     GameLikedComponent,
+    ReviewChartComponent,
   ],
   imports: [
     BrowserModule,

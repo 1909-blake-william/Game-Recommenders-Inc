@@ -15,6 +15,7 @@ import { GameInfoComponent } from './game-info/game-info.component';
 import { UserRegistrationComponent } from './user-registration/user-registration.component';
 import { GameCardComponent } from './game-card/game-card.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,7 +33,8 @@ import { GameCardComponent } from './game-card/game-card.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ChartsModule
+    ChartsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

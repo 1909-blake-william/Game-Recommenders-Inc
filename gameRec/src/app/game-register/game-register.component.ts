@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 // import { GameRegistrationService } from '../services/game-registration.service';
 import { VideoGameRegister } from '../model/gameRegister';
-import { SlugConvertorPipe } from '../custom pipe/slug-converter';
-import { Videogame } from '../model/game.model';
+import { gameRegistrationService} from 'src/app/services/game-registration.service'
 
 
 
@@ -18,7 +17,7 @@ export class GameRegisterComponent implements OnInit {
     throw new Error('Method not implemented.');
   }
 
-
+// 
 // constructor(
 //   private registerGame: GameRegistrationService,
 // );

@@ -12,13 +12,14 @@ import { Videogame } from '../model/game.model';
 })
 
 export class GameRegistrationService {
+
   private appUri: 'http://localhost:8080/GameRecommender/login';
-  videoGame: Videogame;
-  registerGame: VideoGameRegister;
-  constructor(private httpClient: HttpClient, private router: Router) {
-    this.httpClient.get<ApiResponse[]>(`https://api.rawg.io/api/games?name=${this.registerGame.slug}`, {
-      withCredentials: true
-    }).subscribe(
+  public videoGame: Videogame;
+
+  constructor(private httpClient: HttpClient, private router: Router) {}
+    RegisterGame(registerGame: VideoGameRegister) {
+    this.httpClient.get<ApiResponse[]>(`https://api.rawg.io/api/games?name=${registerGame.slug}`,
+    ).subscribe(
       data => {
         if (data) {
           for (const r of data) {
@@ -47,7 +48,8 @@ export class GameRegistrationService {
     // tslint:disable-next-line: align
     // } err: any; => {
   // console.error(err.error);
-}
+    }
+
 
   // let r;
   // this.result = data;

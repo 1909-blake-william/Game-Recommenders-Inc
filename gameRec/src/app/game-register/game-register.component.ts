@@ -16,6 +16,7 @@ import { GameRegistrationService } from '../services/game-registration.service';
 
 export class GameRegisterComponent implements OnInit  {
 
+<<<<<<< HEAD
   videoGame = {
         userId: 0,
         slug: '',
@@ -25,6 +26,10 @@ export class GameRegisterComponent implements OnInit  {
         likeDislike: '',
   };
   constructor(private router: Router, private authService: AuthService, private regServ : GameRegistrationService){}
+=======
+  videoGame: VideoGameRegister;
+  constructor(private router: Router, private authService: AuthService, private regServ: GameRegistrationService){}
+>>>>>>> 0c42df526673c82312404bd9c751087c57c17996
 
   user: User;
   userSubscription: Subscription;

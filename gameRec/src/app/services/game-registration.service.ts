@@ -17,7 +17,7 @@ export class GameRegistrationService {
   public videoGame: Videogame;
 
   constructor(private httpClient: HttpClient, private router: Router) {}
-    RegisterGame(registerGame: VideoGameRegister) {
+    RegisterGame(registerGame: any) {
     this.httpClient.get<ApiResponse[]>(`https://api.rawg.io/api/games?name=${registerGame.slug}`,
     ).subscribe(
       data => {

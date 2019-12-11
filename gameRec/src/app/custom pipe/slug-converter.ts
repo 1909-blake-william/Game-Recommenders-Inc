@@ -1,12 +1,14 @@
-// import { Pipe, PipeTransform } from '@angular/core';
+import { Pipe, PipeTransform } from '@angular/core';
 
 
-// @Pipe({name: 'slugConvertor'})
-// export class SlugConvertorPipe implements PipeTransform {
-    // transform(value: string, input: string): string{
-    //     const toReplace = ' ';
-    //     const final = input.toLowerCase;
-    //     const result = final.replace(toReplace, '-');
-    //     return result;
-    // }
-// }
+@Pipe({name: 'slugConvertor'})
+export class SlugConvertorPipe implements PipeTransform {
+    transform(input: string): string {
+        return input.toString().toLowerCase()
+          .replace(/\s+/g, '-')           // Replace spaces with -
+          .replace(/[^\w\-]+/g, '')       // Remove all non-word chars
+          .replace(/\-\-+/g, '-')         // Replace multiple - with single -
+          .replace(/^-+/, '')             // Trim - from start of text
+          .replace(/-+$/, '');            // Trim - from end of text
+      }
+}

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Videogame } from '../model/game.model';
+
 
 
 @Component({
@@ -10,9 +11,12 @@ import { HttpClient } from '@angular/common/http';
 
 export class GameRegisterComponent implements OnInit {
 
-  constructor() { }
+  videoGame: Videogame;
+  
 
-  ngOnInit() { }
+constructor() { }
+
+ngOnInit() { }
 
 }
 

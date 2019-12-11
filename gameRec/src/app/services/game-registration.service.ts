@@ -2,7 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { VideoGameRegister } from '../model/gameRegister';
-import { Videogame, ApiResponse } from '../model/game.model';
+
+
+import { ApiResponse } from '../model/ApiResponse.model';
+import { Videogame } from '../model/game.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +14,7 @@ export class GameRegistrationService {
   private appUri: 'http://localhost:8080/GameRecommender/login'
   videoGame: Videogame;
   constructor(private httpClient: HttpClient, private router: Router) {
-    this.httpClient.get<ApiResponse[]>(`https://api.rawg.io/api/games?name=${Object.keys(VideoGameRegister[0])}`, {
+    this.httpClient.get<ApiResponse[]>(`https://api.rawg.io/api/games?name=${Object.keys(VideoGa)}`, {
       withCredentials: true
     }).subscribe(
       data => {
@@ -62,7 +65,4 @@ export class GameRegistrationService {
   // this.videoGame.name = data.name;
 
   // this.httpClient.post<data>('http://localhost:8080/GameRecommender/gri/register-game')
-}
-
-constructor() { };
 }

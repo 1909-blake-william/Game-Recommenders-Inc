@@ -3,15 +3,14 @@
 
  <form id = "register_game"> 
     Name of Game:<br>
-    <input type = "text" name="game_name" [(ngModel)]="videoGame.name" [(ngModel)]="{{videoGame.slug|SlugConvertorPipe}}" ><br>
+    <input type = "text" name="game_name" [(ngModel)]="videoGame.name"><br>
     Platform:<br>
-    <select [(ngModel)]="videoGame." >
+    <select name="console" [(ngModel)]="videoGame.platform" >
         <option value="PC">PC</option> --><br>
         <!-- Add the rest of platforms after succesful PC implementation -->
     </select><br>
-    Do you own this game?:<br>
-    <button type="button" value="Like" [(ngModel)]="likeDislike">Like</button>
-    <button type="button" value="Dislike" [(ngModel)]="likeDislike">Dislike</button><br><br>
+    <button type="button" (click)="like()">Like</button>
+    <button type="button" (click)="dislike()">Dislike</button><br><br>
     <button type="button" (click)="RegisterGame()" >Register</button>
     <div id="error-message">
     </div>

@@ -16,20 +16,14 @@ import { GameRegistrationService } from '../services/game-registration.service';
 
 export class GameRegisterComponent implements OnInit  {
 
-<<<<<<< HEAD
   videoGame = {
-        userId: 0,
-        slug: '',
+        userName: '',
         name: '',
-        videoGameName: '',
         platform: '',
-        likeDislike: '',
+        likeDislike: 1,
   };
-  constructor(private router: Router, private authService: AuthService, private regServ : GameRegistrationService){}
-=======
-  videoGame: VideoGameRegister;
   constructor(private router: Router, private authService: AuthService, private regServ: GameRegistrationService){}
->>>>>>> 0c42df526673c82312404bd9c751087c57c17996
+
 
   user: User;
   userSubscription: Subscription;
@@ -41,11 +35,19 @@ export class GameRegisterComponent implements OnInit  {
     if (!this.user) {
       this.router.navigateByUrl('/login');
     }
-    throw new Error('Method not implemented.');
+    this.videoGame.userName = this.user.username;
   }
 
   RegisterGame() {
+    console.log(this.videoGame);
     this.regServ.RegisterGame(this.videoGame);
+  }
+
+  like(){
+    this.videoGame.likeDislike = 5;
+  }
+  dislike(){
+    this.videoGame.likeDislike = 6;
   }
 }
 

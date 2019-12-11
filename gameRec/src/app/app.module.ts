@@ -17,6 +17,7 @@ import { GameCardComponent } from './game-card/game-card.component';
 import { GameLikedComponent } from './game-liked/game-liked.component';
 import { ReviewChartComponent } from './review-chart/review-chart.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,8 @@ import { ReviewChartComponent } from './review-chart/review-chart.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ChartsModule
+    ChartsModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

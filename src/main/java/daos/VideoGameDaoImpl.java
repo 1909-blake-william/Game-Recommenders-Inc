@@ -5,13 +5,16 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import models.VideoGame;
 import utility.ConnectionUtil;
 import utility.Exceptions;
 import utility.MagicWord;
 
 public class VideoGameDaoImpl implements VideoGameDao {
-
+	private final Logger logger = LogManager.getLogger(getClass());
 	private static VideoGameDao instance = new VideoGameDaoImpl();
 
 	private VideoGameDaoImpl() {
@@ -21,6 +24,7 @@ public class VideoGameDaoImpl implements VideoGameDao {
 	@Override
 	public void addVideoGame(int game_id, String game_name, int user_id, int platform_id, int genre_id,
 			int preference_id) {
+		logger.info("Attempting to add parameters: {}, {}, {}, {}, {}, {}", game_id, game_name, user_id, platform_id, genre_id, preference_id);
 		try (Connection c = ConnectionUtil.getConnection()) {
 			PreparedStatement stmt = c.prepareCall(MagicWord.INSERT_QUERY);
 			stmt.setInt(1, game_id);

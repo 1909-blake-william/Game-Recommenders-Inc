@@ -1,8 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 // import { GameRegistrationService } from '../services/game-registration.service';
 import { VideoGameRegister } from '../model/gameRegister';
-import { SlugConvertorPipe } from '../custom pipe/slug-converter';
 import { Videogame } from '../model/game.model';
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+import { User } from '../model/user.model';
 
 
 
@@ -12,10 +15,22 @@ import { Videogame } from '../model/game.model';
   styleUrls: ['./game-register.component.scss']
 })
 
-export class GameRegisterComponent implements OnInit {
+export class GameRegisterComponent implements OnInit  {
   videoGame: VideoGameRegister;
-  ngOnInit(): void {
+
+  constructor(private router: Router, private authService: AuthService){}
+
+  user: User;
+  userSubscription: Subscription;
+
+  ngOnInit() {
     throw new Error('Method not implemented.');
+    this.userSubscription = this.authService.$currentUser.subscribe( (user: User) => {
+      this.user = user;
+    });
+    if (!this.user) {
+      this.router.navigateByUrl('/login');
+    }
   }
 
   // tslint:disable-next-line: no-bitwise

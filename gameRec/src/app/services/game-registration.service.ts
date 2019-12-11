@@ -6,7 +6,6 @@ import { VideoGameRegister } from '../model/gameRegister';
 
 import { ApiResponse } from '../model/ApiResponse.model';
 import { Videogame } from '../model/game.model';
-import { SlugConvertorPipe } from '../custom pipe/slug-converter';
 
 // @Injectable({
 //   providedIn: 'root'

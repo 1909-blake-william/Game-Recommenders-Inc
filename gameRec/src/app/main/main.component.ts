@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
 import { User } from '../model/user.model';
 import { Subscription } from 'rxjs';
 import { AuthService } from '../services/auth.service';
@@ -12,7 +11,7 @@ import { AuthService } from '../services/auth.service';
 })
 export class MainComponent implements OnInit {
 
-  constructor(private router: Router, private httpClient: HttpClient, private authService: AuthService) { }
+  constructor(private router: Router, private authService: AuthService) { }
 
   user: User;
   userSubscription: Subscription;
@@ -31,15 +30,15 @@ export class MainComponent implements OnInit {
   }
 
   go2owned() {
-    this.router.navigateByUrl('/recom');
-  }
-
-  go2liked() {
     this.router.navigateByUrl('/owned');
   }
 
-  go2recommended() {
+  go2liked() {
     this.router.navigateByUrl('/liked');
+  }
+
+  go2recommended() {
+    this.router.navigateByUrl('/recom');
   }
 
   go2chart() {

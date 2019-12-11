@@ -16,7 +16,14 @@ import { GameRegistrationService } from '../services/game-registration.service';
 
 export class GameRegisterComponent implements OnInit  {
 
-  videoGame: VideoGameRegister;
+  videoGame = {
+        userId: 0,
+        slug: '',
+        name: '',
+        videoGameName: '',
+        platform: '',
+        likeDislike: '',
+  };
   constructor(private router: Router, private authService: AuthService, private regServ : GameRegistrationService){}
 
   user: User;
